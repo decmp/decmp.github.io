@@ -1,0 +1,33 @@
+name: Propose a guide
+description: Offer to write a page, or suggest one that's missing.
+title: "Guide: "
+labels: [guide]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: An existing stub (e.g. /platforms/n64/) or a new page you have in mind.
+    validations:
+      required: true
+  - type: textarea
+    id: outline
+    attributes:
+      label: Outline
+      description: The sections you would write, in a few lines each.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: Where the facts come from (tool repositories, your own projects). No copied text, please.
+  - type: dropdown
+    id: writing
+    attributes:
+      label: Will you write it?
+      options:
+        - Yes, assign it to me
+        - I'd like someone else to
+    validations:
+      required: true

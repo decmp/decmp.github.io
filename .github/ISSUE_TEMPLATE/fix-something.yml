@@ -1,0 +1,23 @@
+name: Fix something
+description: Report a mistake, a broken link, an outdated fact or a translation problem.
+title: "Fix: "
+labels: [fix]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Page
+      description: The address of the page, e.g. https://learn.decmp.dev/matching/workflow/
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's wrong
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested fix
+      description: The correct text or fact, with a source if you have one.
