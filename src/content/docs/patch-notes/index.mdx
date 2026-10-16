@@ -1,0 +1,24 @@
+---
+title: Patch Notes
+description: A weekly digest of decompilation progress on decmp.dev, generated every Monday.
+sidebar:
+  label: All issues
+  order: -999999
+---
+
+import PatchNotesList from '../../../components/PatchNotesList.astro';
+
+Every Monday at 06:00 UTC a script reads the public decmp.dev API and writes one issue about the ISO week that just
+ended. Each issue has the same sections:
+
+- **High Scores:** the ten biggest gains in matched code, in percentage points.
+- **Stage Cleared:** projects that reached 100%.
+- **New Challengers:** projects whose first report landed that week.
+- **Checkpoints:** projects that crossed 25, 50, 75 or 90%.
+- **Combo Meter:** the projects measured on the most days.
+- **By platform:** matched code per console, with the week's change.
+
+Figures use each project's default version and all of its code. Follow along with the
+[RSS feed](/patch-notes/rss.xml).
+
+<PatchNotesList />

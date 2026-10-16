@@ -1,0 +1,54 @@
+---
+title: decmp Learn
+description: From first function to 100%. A practical guide to starting and progressing in a matching decompilation, plus a weekly digest of progress on decmp.dev.
+template: splash
+editUrl: false
+lastUpdated: false
+hero:
+  title: From first function to 100%
+  tagline: A practical guide to starting, and finishing, a matching decompilation. Written by people who match functions for fun, with weekly Patch Notes from decmp.dev.
+  actions:
+    - text: Start here
+      link: /start/what-is-decomp/
+      icon: right-arrow
+    - text: Connect your project
+      link: /progress/upload-action/
+      variant: secondary
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import PatchNotesList from '../../components/PatchNotesList.astro';
+
+## Start here
+
+<CardGrid>
+	<LinkCard title="What is a decomp?" description="Matching versus non-matching, and why byte-identical output is the goal." href="/start/what-is-decomp/" />
+	<LinkCard title="Stay legal" description="No ROMs, no assets, no leaked code in your repository." href="/start/legal/" />
+	<LinkCard title="Choose a game" description="What makes a first project friendly, and what makes it hard." href="/start/choosing-a-game/" />
+	<LinkCard title="Prerequisites" description="The C, assembly and tooling you need before your first match." href="/start/prerequisites/" />
+</CardGrid>
+
+## Paths by console
+
+<CardGrid>
+	<LinkCard title="GameCube and Wii" description="PowerPC, CodeWarrior, decomp-toolkit and objdiff." href="/platforms/gamecube-wii/" />
+	<LinkCard title="Nintendo 64" description="MIPS, IDO and GCC." href="/platforms/n64/" />
+	<LinkCard title="GBA and DS" description="ARM and Thumb: agbcc on GBA, CodeWarrior for ARM on DS." href="/platforms/gba-nds/" />
+	<LinkCard title="PS1 and PS2" description="MIPS on both; old GCC versions and maspsx on PS1." href="/platforms/ps1-ps2/" />
+	<LinkCard title="Switch and 3DS" description="ARM64 on Switch, ARM on 3DS, and much bigger binaries." href="/platforms/switch-3ds/" />
+</CardGrid>
+
+## Match, measure, share
+
+<CardGrid>
+	<Card title="The matching loop" icon="seti:c">
+		Pick a function, draft C, compile, diff, repeat. [Read the workflow](/matching/workflow/).
+	</Card>
+	<Card title="Track your progress" icon="rocket">
+		Upload your objdiff report from CI and get a project page and badges. [Set up the action](/progress/upload-action/).
+	</Card>
+</CardGrid>
+
+## Latest Patch Notes
+
+<PatchNotesList limit={3} more />
