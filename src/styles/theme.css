@@ -207,3 +207,21 @@ header.header {
 		animation: none !important;
 	}
 }
+
+/* sidebar: the current page is a grey pill, like decmp.dev's active nav item */
+.sidebar-content a[aria-current='page'],
+.sidebar-content a[aria-current='page']:hover,
+.sidebar-content a[aria-current='page']:focus {
+	color: var(--sl-color-white);
+	background-color: var(--sl-color-gray-6);
+	border-radius: 0.375rem;
+}
+:root:not([data-theme='light']) .sidebar-content a[aria-current='page'] {
+	background-color: rgb(39 39 42 / 0.7);
+}
+
+/* Starlight cycles card icon colours; keep them grey like the rest */
+.card {
+	--sl-card-border: var(--sl-color-gray-4);
+	--sl-card-bg: var(--sl-color-gray-6);
+}

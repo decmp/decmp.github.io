@@ -93,6 +93,10 @@ const dateFormat = new Intl.DateTimeFormat(Astro.locals.starlightRoute.lang, {
 	}
 	.more a {
 		color: var(--sl-color-text-accent);
+		text-decoration: none;
+	}
+	.more a:hover {
+		text-decoration: underline;
 	}
 	.empty {
 		color: var(--sl-color-gray-3);
