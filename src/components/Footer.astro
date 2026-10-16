@@ -1,0 +1,36 @@
+---
+// Starlight's footer, then the decmp.dev sign-off.
+import Default from '@astrojs/starlight/components/Footer.astro';
+---
+
+<Default />
+<div class="decmp-footer">
+	<span><span class="brand">decmp Learn</span> · <a href="https://decmp.dev">decmp.dev</a></span>
+	<span class="pixel" lang="en" dir="ltr">GAME OVER? NEVER.</span>
+</div>
+
+<style>
+	.decmp-footer {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem 1.5rem;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 2.5rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--sl-color-hairline);
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-4);
+	}
+	.brand {
+		font-family: var(--sl-font-mono);
+		font-weight: 500;
+		color: var(--sl-color-gray-2);
+	}
+	a {
+		color: inherit;
+	}
+	a:hover {
+		color: var(--sl-color-white);
+	}
+</style>

@@ -1,0 +1,100 @@
+---
+// A list of Patch Notes issues, newest first, linked in the current page's language.
+import { patchNotes } from '../lib/patch-notes';
+
+interface Props {
+	limit?: number;
+	/** Adds the "all issues" and RSS links under the list. */
+	more?: boolean;
+}
+
+const { limit, more = false } = Astro.props;
+const locale = Astro.locals.starlightRoute.locale;
+const prefix = locale ? `/${locale}` : '';
+const issues = (await patchNotes()).slice(0, limit);
+const t = Astro.locals.t;
+const dateFormat = new Intl.DateTimeFormat(Astro.locals.starlightRoute.lang, {
+	dateStyle: 'medium',
+	timeZone: 'UTC',
+});
+---
+
+<div class="notes not-content">
+	{
+		issues.length === 0 ? (
+			<p class="empty">{t('decmp.noNotes')}</p>
+		) : (
+			<ul>
+				{issues.map((issue) => (
+					<li>
+						<a href={`${prefix}/${issue.id}/`}>
+							<span class="title">{issue.data.title}</span>
+							<span class="date">{dateFormat.format(issue.data.date)}</span>
+							{issue.data.description && <span class="desc">{issue.data.description}</span>}
+						</a>
+					</li>
+				))}
+			</ul>
+		)
+	}
+	{
+		more && (
+			<p class="more">
+				<a href={`${prefix}/patch-notes/`}>{t('decmp.allNotes')} →</a>
+				<a href="/patch-notes/rss.xml">{t('decmp.rss')}</a>
+			</p>
+		)
+	}
+</div>
+
+<style>
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		gap: 0.5rem;
+	}
+	li a {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 0.125rem 1rem;
+		padding: 0.75rem 1rem;
+		border: 1px solid var(--decmp-card-border);
+		border-radius: 0.75rem;
+		background: var(--decmp-card-bg);
+		box-shadow: var(--decmp-card-shadow);
+		text-decoration: none;
+		color: var(--sl-color-gray-2);
+	}
+	li a:hover {
+		border-color: var(--sl-color-gray-4);
+	}
+	.title {
+		font-weight: 600;
+		color: var(--sl-color-white);
+	}
+	.date {
+		font-family: var(--sl-font-mono);
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-3);
+		align-self: center;
+	}
+	.desc {
+		grid-column: 1 / -1;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-3);
+	}
+	.more {
+		display: flex;
+		gap: 1.25rem;
+		margin-top: 0.75rem;
+		font-size: var(--sl-text-sm);
+	}
+	.more a {
+		color: var(--sl-color-text-accent);
+	}
+	.empty {
+		color: var(--sl-color-gray-3);
+	}
+</style>
