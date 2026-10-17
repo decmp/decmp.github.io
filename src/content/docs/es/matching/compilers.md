@@ -22,6 +22,14 @@ suele ser el primer hito real de un proyecto.
   compiladores reconstruidos.
 - **Varios compiladores en un mismo juego:** bibliotecas compiladas con una versión distinta a la del juego.
 
+## Cómo conseguir los compiladores
+
+decmp no aloja ni enlaza descargas de compiladores: son software propietario. Aun así, normalmente no tendrás que
+buscarlos: las plantillas de proyecto como [dtk-template](https://github.com/encounter/dtk-template) descargan el
+paquete de compiladores con el que se configuraron la primera vez que compilas, y pueden usar una copia que ya
+tengas (en dtk-template, `configure.py --compilers <directorio>`). Si te atascas, pregunta en el proyecto al que te unes o en su
+comunidad.
+
 :::note[Ayuda a escribir esta página]
 Esta página es un borrador. Si conoces el tema, [propón una guía](https://github.com/decmp/decmp.github.io/issues/new?template=propose-a-guide.yml)
 o abre un pull request que edite `src/content/docs/matching/compilers.md`. Consulta

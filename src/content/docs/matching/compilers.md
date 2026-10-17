@@ -22,6 +22,14 @@ is often the first real milestone of a project.
   compilers.
 - **Several compilers in one game:** libraries built with a different version from the game.
 
+## Getting the compilers
+
+decmp doesn't host or link compiler downloads: they are proprietary software. You don't usually need to look for
+them yourself, though. Project templates such as [dtk-template](https://github.com/encounter/dtk-template) fetch
+the compiler bundle they were set up with the first time you build, and can use a copy you already have instead
+(in dtk-template, `configure.py --compilers <dir>`). If you're stuck, the project you're joining, or its
+community, is the place to ask.
+
 :::note[Help write this page]
 This page is a stub. If you know this topic, [propose a guide](https://github.com/decmp/decmp.github.io/issues/new?template=propose-a-guide.yml)
 or open a pull request that edits `src/content/docs/matching/compilers.md`. See
